@@ -14,4 +14,10 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
     ];
+    protected $routeMiddleware = [
+    'auth' => 'App\Http\Middleware\Authenticate',
+    'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
+    'guest' => 'App\Http\Middleware\RedirectIfAuthenticated',
+    'csrf' => 'App\Http\Middleware\VerifyCsrfToken',
+];
 }
